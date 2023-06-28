@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  {useState} from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -16,8 +16,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import Capsule from '../views/Capsule';
+import Message from '../views/Message';
+import Pattern from '../views/Pattern';
+import Project from '../views/Project';
+import Settings from '../views/Settings';
+
+
+import {navItem} from '../data/data'
 
 const drawerWidth = 240;
 
@@ -88,7 +94,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [menuData, setmenuData] = useState("boxPattern");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -128,8 +135,9 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+          {navItem.map(item => (
+            <ListItem key={item.id} disablePadding sx={{ display: 'block' }} onClick={() => setmenuData(item.page)}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -144,42 +152,25 @@ export default function MiniDrawer() {
                     justifyContent: 'center',
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {item.icon}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={item.item} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+       
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
     
-        
+        {menuData == "Capsule" && <Capsule/>    }  
+        {menuData == "Message" && <Message/>    }  
+        {menuData == "Pattern" && <Pattern/>    } 
+        {menuData == "Project" && <Project/>    }  
+        {menuData == "Settings" && <Settings/>    }  
+
+      
        
       </Box>
     </Box>

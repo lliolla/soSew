@@ -1,4 +1,4 @@
-import MiniDrawer from "../components/sidebar/MiniDrawer";
+import Layout from "../layout/Layout";
 
 
 export default function Dashboard() {
@@ -6,7 +6,7 @@ export default function Dashboard() {
    
     <main>
  
-        <MiniDrawer/>
+        <Layout/>
     </main>
   )
 }
