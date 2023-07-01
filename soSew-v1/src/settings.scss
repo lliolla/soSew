@@ -1,0 +1,43 @@
+
+// police
+@font-face {
+    font-family: "font-1";
+    src: url(../src/assets/fonts/Questrial-Regular.woff2  );
+  }
+  @font-face {
+    font-family: "font-2";
+    src: url(../src/assets/fonts/Michroma-Regular.woff2   );
+  }
+  @font-face {
+      font-family: "title";
+      src: url(../src/assets/fonts/Ryana-Lovely.ttf  );
+    }
+  
+  //variables
+  $font-1: "font-1", sans-serif;
+  $font-2: "font-2", serif;
+  $title: "title", serif;
+  
+  $purple: #64555b;
+  $purple-light: #cca596;
+  $yellow: #c1912b;
+  $blue: #23526c;
+  $jade: #7fc29b;
+  $green: #cfff7d;
+  $grey: #57605b;
+  $grey-light: #d9dcd6;
+  $black: #313638;
+  
+  //reset CSS
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: $font-1;
+  }
+  
+  

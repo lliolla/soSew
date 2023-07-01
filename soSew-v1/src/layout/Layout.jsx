@@ -1,5 +1,6 @@
 import  {useState} from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+//mui component
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -10,12 +11,12 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+// views 
 import Capsule from '../views/Capsule';
 import Message from '../views/Message';
 import Pattern from '../views/Pattern';
@@ -23,7 +24,8 @@ import Project from '../views/Project';
 import Settings from '../views/Settings';
 
 
-import {navItem} from '../data/data'
+import {navItem} from '../data/navData'
+
 
 const drawerWidth = 240;
 
@@ -93,44 +95,42 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
-  const theme = useTheme();
-  const [open, setOpen] = useState(false);
-  const [menuData, setmenuData] = useState("boxPattern");
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  const [open, setOpen] = useState(false);
+  const [menuData, setmenuData] = useState("Pattern");
+
+  
 
   const handleDrawerClose = () => {
     setOpen(false);
   };
 
   return (
+    <>
+      
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" elevation={4} sx={{backgroundColor:"#cca596"}}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={()=>{setOpen(!open)}}
             edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+          <Typography variant="h6" noWrap component="div" >
+          <img src="../../public/needle.png" alt="needle" height={40}/>
+          
+            SOSEW Bibliothèque de patrons
           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+           
           </IconButton>
         </DrawerHeader>
         <Divider />
@@ -174,5 +174,8 @@ export default function MiniDrawer() {
        
       </Box>
     </Box>
+
+    </>
+   
   );
 }

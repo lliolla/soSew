@@ -1,8 +1,11 @@
+import { Box } from "@mui/material"
 
 
 function Message() {
   return (
-    <div>Message</div>
+    <> <Box height={100} />
+    <div> message</div> 
+    </>
   )
 }
 

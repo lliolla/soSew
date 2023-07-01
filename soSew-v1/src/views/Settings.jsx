@@ -1,8 +1,11 @@
+import { Box } from "@mui/material"
 
 
 function Settings() {
   return (
-    <div>Settings</div>
+    <> <Box height={100}/>
+    <div> Settings</div> 
+    </>
   )
 }
 
