@@ -6,7 +6,6 @@ import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -23,10 +22,12 @@ import Pattern from '../views/Pattern';
 import Project from '../views/Project';
 import Settings from '../views/Settings';
 
-
+// components
 import {navItem} from '../data/navData'
 
+//styles
 
+import {girdViewStyle,appBarStyles} from '../styles'
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -107,10 +108,8 @@ export default function MiniDrawer() {
 
   return (
     <>
-      
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" elevation={4} sx={{backgroundColor:"#cca596"}}>
+
+      <AppBar position="fixed" elevation={4} sx={appBarStyles}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -162,7 +161,8 @@ export default function MiniDrawer() {
         <Divider />
        
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" 
+      sx={girdViewStyle }>
     
         {menuData == "Capsule" && <Capsule/>    }  
         {menuData == "Message" && <Message/>    }  
@@ -173,7 +173,7 @@ export default function MiniDrawer() {
       
        
       </Box>
-    </Box>
+
 
     </>
    

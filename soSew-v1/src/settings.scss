@@ -13,11 +13,12 @@
       src: url(../src/assets/fonts/Ryana-Lovely.ttf  );
     }
   
-  //variables
+  //fonts 
   $font-1: "font-1", sans-serif;
   $font-2: "font-2", serif;
   $title: "title", serif;
   
+  //colors 
   $purple: #64555b;
   $purple-light: #cca596;
   $yellow: #c1912b;
@@ -27,6 +28,17 @@
   $grey: #57605b;
   $grey-light: #d9dcd6;
   $black: #313638;
+
+  :export {
+    purple :$purple;
+    purple-light :$purple-light;
+    yellow :$yellow;
+    blue :$blue;
+    grey-light :$grey-light;
+
+    
+  }
+  
   
   //reset CSS
   * {

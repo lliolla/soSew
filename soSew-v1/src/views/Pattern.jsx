@@ -1,21 +1,29 @@
-import { Box } from "@mui/material"
-import dataPattern from '../data/patternData';
+
+import dataPattern from "../data/patternData";
+import CardPattern from "../components/CardPattern";
+import { Container } from "@mui/material";
+import {patternContainerStyles} from '../styles'
+
 
 function Pattern() {
   return (
-    <> <Box height={100}/>
-    <div> Patern</div> 
-   { dataPattern.map(item=>(
-    <div className="card" key={item.id}>
-        <div className="card-title">{item.name}</div>
-        <div className="card-content">{item.type}</div>
-        <div className="card-img">{item.img}</div>
-        <button></button>
-    </div>
-   ))
-   }
-    </>
-  )
+
+    <Container sx={patternContainerStyles}>
+    <div> Patern</div>
+      {dataPattern.map((item) => (
+        <CardPattern
+          key={item.id}
+          name={item.name}
+          type={item.type}
+          img={item.img}
+          des={item.des}
+        />
+      ))}
+        </Container>       
+      
+
+
+  );
 }
 
-export default Pattern
+export default Pattern;
