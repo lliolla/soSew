@@ -5,16 +5,11 @@ import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 // views 
 import Capsule from '../views/Capsule';
 import Message from '../views/Message';
@@ -28,6 +23,7 @@ import {navItem} from '../data/navData'
 //styles
 
 import {girdViewStyle,appBarStyles} from '../styles'
+import SisebarListItems from '../components/global/SisebarListItems';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -100,7 +96,9 @@ export default function MiniDrawer() {
   const [open, setOpen] = useState(false);
   const [menuData, setmenuData] = useState("Pattern");
 
-  
+  const handleMenuDataChange = (data) => {
+    setmenuData(data); // Met à jour la valeur de menuData dans le parent
+  };
 
   const handleDrawerClose = () => {
     setOpen(false);
@@ -133,31 +131,7 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          {navItem.map(item => (
-            <ListItem key={item.id} disablePadding sx={{ display: 'block' }} onClick={() => setmenuData(item.page)}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText primary={item.item} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+    <SisebarListItems navItem={navItem} setMenuData={handleMenuDataChange} />   
         <Divider />
        
       </Drawer>
