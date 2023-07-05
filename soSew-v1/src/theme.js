@@ -1,5 +1,8 @@
 // MUI theme
+
 import { createTheme } from '@mui/material/styles';
+import './settings.scss'
+
 
 const theme = createTheme({
   palette: {

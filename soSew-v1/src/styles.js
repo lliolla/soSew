@@ -1,6 +1,6 @@
 
 //layout view style
-export const girdViewStyle =
+export const gridViewStyle =
 {
     backgroundColor:'#d9dcd6'
 }

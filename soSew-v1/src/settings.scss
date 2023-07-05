@@ -20,24 +20,25 @@
   
   //colors 
   $purple: #64555b;
+  $red :#ca3c25;
   $purple-light: #cca596;
-  $yellow: #c1912b;
-  $blue: #23526c;
+  $yellow: #dbd053;
+  $blue: #177e89;
   $jade: #7fc29b;
   $green: #cfff7d;
   $grey: #57605b;
   $grey-light: #d9dcd6;
   $black: #313638;
 
-  :export {
-    purple :$purple;
-    purple-light :$purple-light;
-    yellow :$yellow;
-    blue :$blue;
-    grey-light :$grey-light;
+  // :export {
+  //   purple :$purple;
+  //   purple-light :$purple-light;
+  //   yellow :$yellow;
+  //   blue :$blue;
+  //   grey-light :$grey-light;
 
     
-  }
+  // }
   
   
   //reset CSS

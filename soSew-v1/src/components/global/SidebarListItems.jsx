@@ -5,22 +5,23 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
+
 // verification type props : les props sont definie et ne pauvent etre null ou undifined
 import PropTypes from "prop-types";
 
-SisebarListItems.propTypes = {
-    navItem: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        item: PropTypes.string.isRequired,
-        icon: PropTypes.node.isRequired,
-        page: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    setMenuData: PropTypes.func.isRequired, // Ajout de la prop setMenuData
-  };
+SidebarListItems.propTypes = {
+  navItem: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      item: PropTypes.string.isRequired,
+      icon: PropTypes.node.isRequired,
+      page: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  setMenuData: PropTypes.func.isRequired,
+};
   
-function SisebarListItems({navItem,setMenuData }) {
+function SidebarListItems({navItem,setMenuData }) {
     const handleItemClick = (page) => {
         setMenuData(page); // Appel de la fonction de rappel pour mettre à jour la valeur dans le parent
       };
@@ -55,4 +56,4 @@ function SisebarListItems({navItem,setMenuData }) {
   )
 }
 
-export default SisebarListItems
+export default SidebarListItems
