@@ -98,11 +98,12 @@ export default function Sidebar() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-   
      
-        <TopBar handleDrawerOpen={handleDrawerOpen} open={open}/>
-       
-
+        <TopBar 
+        handleDrawerOpen={handleDrawerOpen} 
+        open={open}
+        AppBar={AppBar}
+        />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
