@@ -5,7 +5,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
-
 // verification type props : les props sont definie et ne pauvent etre null ou undifined
 import PropTypes from "prop-types";
 
@@ -56,4 +55,6 @@ function SidebarListItems({navItem,setMenuData }) {
   )
 }
 
-export default SidebarListItems
+export default SidebarListItems 
+
+        
