@@ -2,41 +2,46 @@
 
 import { createTheme } from '@mui/material/styles';
 //import QuestrialRegular from'../src/assets/fonts/Questrial-Regular.woff2'
+// police
 
 
 const theme = createTheme({
-  palette: {
-    primary: {//violet
-      main: '##4a2136',
-      light200:'#cca596' ,
-      light100:'#e8c7b9' ,
-      dark:'#2a0c20'
-    },
-    info: {//bleu
-        main: '#177e89', 
-        light500:'#1fb6cd',
-        light100:'#b2e9f0',
-        dark:'#125b5f'
-      },
-      success  :{//green
-        main: '#7fc29b',
-        light200:'##92d8ad',
-      },
-      warning  :{//red
-        main: '#ca3c25',
-        dark:'#ae2c12'
-      },
-      background  :{//red
-        main: '#ca3c25',
-        dark:'#b5b8b3',
-        light:'#f1f4ee',
-    
-      },
+    palette: {
+      //  mode: 'light',
+        primary: {
+          main: '#3ea38b',
+          light:'#b5ded4',
+          dark :'#1f6651'
+        },
+        secondary: {
+          main: '#c7695d',
+          dark:'#911b00'
+        },
+        background: {
+          default: '#e1f2ee',
+          paper: '#fff',
+        },
+        error: {
+          main: '#f44336',
+        },
+        success: {
+          main: '#24da83',
+          dark:'#009029'
+        },
+        info: {
+          main: '#00ACC1',
+          light:'#b2eaf2',
+          dark:'#005f64'
+        },
+
   },
   typography :{
-    fontFamily: 'Roboto, Arial',
- color :'#313638'
-  }
+    fontFamily: 'Quicksand', 
+    fontWeightLight: '400',
+    fontWeightMedium:'600',
+    fontWeightRegular:'500',
+    fontWeightBold:'700'
+  },  
   
 });
 

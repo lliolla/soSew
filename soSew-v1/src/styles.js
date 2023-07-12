@@ -11,7 +11,6 @@ export const appBarStyles ={
 }
 
 
-
 //pattern box styles
  export const patternContainerStyles ={
     display :'flex',

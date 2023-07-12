@@ -1,27 +1,33 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter, Routes, Route , } from "react-router-dom";
+import { ThemeProvider } from "@mui/material";
 
 import Home from '../src/views/Home'
 import Dashboard from '../src/views/Dashboard'
+import Capsule from '../src/views/Capsule'
+import Message from '../src/views/Message'
+import Patern from '../src/views/Patern'
+import Project from '../src/views/Project'
 
-import Pattern from '../src/views/Home'
-// import { ThemeProvider } from "@mui/material";
-// import theme from './theme'
+
+import theme from './theme'
 
 
 function App() {
  
   return (
     <>
-    {/* <ThemeProvider theme={theme}  > */}
+     <ThemeProvider theme={theme}  >
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/pattern" element={<Pattern/>   } />
+          <Route path="/patern" element={<Patern/>   } />
+          <Route path="/Capsule" element={<Capsule/>   } />
+          <Route path="/Message" element={<Message/>   } />
+          <Route path="/Project" element={<Project/>   } />
         </Routes>
       </BrowserRouter>
-      {/* </ThemeProvider> */}
+     </ThemeProvider> *
     </>
   )
 }
