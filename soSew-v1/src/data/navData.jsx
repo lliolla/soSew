@@ -1,46 +1,51 @@
-import {TbWallpaper} from 'react-icons/tb'
-import {PiFolderStarLight, PiChalkboardTeacherLight} from 'react-icons/pi'
-import {LuMessagesSquare , LuSettings} from 'react-icons/lu'
-import { BusinessCenter, ChildCareOutlined } from '@mui/icons-material'
+import { TiImage } from 'react-icons/ti';
+import { IoMdFolderOpen } from 'react-icons/io';
+import { BsClipboard } from 'react-icons/bs';
+import { FaRegEnvelope } from 'react-icons/fa';
+import { FiSettings } from 'react-icons/fi';
+import { BiChild } from 'react-icons/bi';
+import { BusinessCenter } from '@mui/icons-material';
+
+
 
 export const navItem = [
-{
-    id:1,
-    item:'Patrons',
-    icon:<TbWallpaper/>,
-    link:'pattern',
-    cat:true,
-    
-},
-{
-    id:2,
-    item:'Projets',
-    icon: <PiFolderStarLight/>,
-    link:'project',
-    cat:false,
-},
-{
-    id:3, 
-    item:'Capsules',
-    icon:<PiChalkboardTeacherLight/>,
-    link:'capsule',
-    cat:false,
-},
-{
-    id:4,
-    item:'Messages',
-    icon:<LuMessagesSquare  />,
-    link:'message',
-    cat:false,
-},
-{
-    id:5,
-    item:'Setting',
-    icon:<LuSettings/>,
-    link:'settings',
-    cat:false,
-}
-]
+    {
+      id: 1,
+      title: 'Patrons',
+      icon: <TiImage />,
+      link: 'pattern',
+      cat: true,
+    },
+    {
+      id: 2,
+      title: 'Projets',
+      icon: <IoMdFolderOpen />,
+      link: 'project',
+      cat: false,
+    },
+    {
+      id: 3,
+      title: 'Capsules',
+      icon: <BsClipboard />,
+      link: 'capsule',
+      cat: false,
+    },
+    {
+      id: 4,
+      title: 'Messages',
+      icon: <FaRegEnvelope />,
+      link: 'message',
+      cat: false,
+    },
+    {
+      id: 5,
+      title: 'Setting',
+      icon: <FiSettings />,
+      link: 'settings',
+      cat: false,
+    },
+  ];
+  
 
 export const catPatern =[
     {
@@ -53,7 +58,7 @@ export const catPatern =[
     {
         id:2,
         text:'Enfants',
-        icon:<ChildCareOutlined/>
+        icon:<BiChild/>
         
     },
     {

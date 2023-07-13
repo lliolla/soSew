@@ -13,25 +13,26 @@ import { Collapse } from "@mui/material";
 
 
 SidebarListItems.propTypes = {
-  navItem: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      item: PropTypes.string.isRequired,
-      icon: PropTypes.node.isRequired,
-      link: PropTypes.string.isRequired,
-      cat: PropTypes.string.isRequired,
-    })
-  ),
-  
-  catPatern: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-      icon: PropTypes.node.isRequired,
-    
-    })
-  ),
-};
+    navItem: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        item: PropTypes.string.isRequired,
+        icon: PropTypes.elementType.isRequired,
+        link: PropTypes.string.isRequired,
+        cat: PropTypes.bool.isRequired,
+      })
+    ),
+    catPatern: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          text: PropTypes.string.isRequired,
+          icon: PropTypes.oneOfType([
+            PropTypes.string, // ou PropTypes.instanceOf(React.Element) selon le type réel de `icon`
+            PropTypes.elementType // ou PropTypes.instanceOf(React.Element) selon le type réel de `icon`
+          ]).isRequired,
+        })
+      ),
+  };
   
 function SidebarListItems({navItem,catPatern}) {
 //  const navigate =useNavigate();
@@ -42,6 +43,8 @@ function SidebarListItems({navItem,catPatern}) {
         setOpen(!open);
       };
   return (
+    <Collapse in={open} timeout="auto" unmountOnExit>
+
     <List component="nav">
     {navItem.map(item => (
       <List key={item.id} 
@@ -67,22 +70,19 @@ function SidebarListItems({navItem,catPatern}) {
           >
             {item.icon}
           </ListItemIcon>
-          <ListItemText primary={item.item} sx={{ opacity: open ? 1 : 0 }}  />
+          <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }} >
+
+          </ListItemText>
+          
+
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItemButton>
-        </List>
-      </Collapse>
+        
+  
       </List>
     ))}
   </List>
+  </Collapse>
   )
 }
 
