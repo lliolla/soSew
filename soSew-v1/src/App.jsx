@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route , } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
 
-import Layout from '../src/layout/layout'
+
 import Home from '../src/views/Home'
 import Dashboard from '../src/views/Dashboard'
 import Capsule from '../src/views/Capsule'
@@ -11,6 +11,7 @@ import Project from '../src/views/Project'
 
 
 import theme from './theme'
+import Layout from "./layout/layout";
 
 
 function App() {
