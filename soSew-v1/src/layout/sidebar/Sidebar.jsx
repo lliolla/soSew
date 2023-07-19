@@ -12,7 +12,7 @@ import { Avatar, Typography } from "@mui/material";
 
 import SidebarListItems from "./SidebarListItems";
 
-import { navItem, catPatern } from "../../data/navData";
+import { navItem } from "../../data/navData";
 import { useState } from "react";
 
 const drawerWidth = 240;
@@ -94,7 +94,7 @@ export default function Sidebar({ handleDrawerClose }) {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <SidebarListItems navItem={navItem} catPatern={catPatern} open={open} handleClick={handleClick} />
+        <SidebarListItems navItem={navItem}  open={open} handleClick={handleClick} />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
         </Box>

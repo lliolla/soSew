@@ -13,6 +13,23 @@ export const navItem = [
     icon: <TiImage />,
     link: 'pattern',
     cat: true,
+    catPatern:[
+        {
+            id: 1,
+            text: 'Adulte',
+            icon: "/public/couple.png"
+          },
+          {
+            id: 2,
+            text: 'Enfants',
+            icon: <BiChild />,
+          },
+          {
+            id: 3,
+            text: 'Accessoires',
+            icon: <BusinessCenter />,
+          },
+    ]
   },
   {
     id: 2,
@@ -44,20 +61,4 @@ export const navItem = [
   },
 ];
 
-export const catPatern = [
-  {
-    id: 1,
-    text: 'Adulte',
-    icon: "/public/couple.png"
-  },
-  {
-    id: 2,
-    text: 'Enfants',
-    icon: <BiChild />,
-  },
-  {
-    id: 3,
-    text: 'Accessoires',
-    icon: <BusinessCenter />,
-  },
-];
+
