@@ -1,4 +1,3 @@
-
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -11,6 +10,7 @@ import { Avatar, Typography } from "@mui/material";
 import SidebarListItems from "./SidebarListItems";
 
 import { navItem, catPatern } from "../../data/navData";
+import { useState } from "react";
 
 const drawerWidth = 240;
 
@@ -44,8 +44,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-
-
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -64,14 +62,16 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function Sidebar(handleDrawerClose) {
+export default function Sidebar({ handleDrawerClose }) {
   const theme = useTheme();
+  const [open, setOpen] = useState  (true);
 
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
   return (
     <Box>
-      
-
       <Drawer variant="permanent" open={open}>
         <DrawerHeader sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box component="div" sx={{ display: "flex" }}>
@@ -91,7 +91,7 @@ export default function Sidebar(handleDrawerClose) {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <SidebarListItems navItem={navItem} catPatern={catPatern} />
+        <SidebarListItems navItem={navItem} catPatern={catPatern} open={open} handleClick={handleClick} />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
         </Box>

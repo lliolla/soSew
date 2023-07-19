@@ -1,91 +1,83 @@
-import { useParams, useNavigate} from "react-router-dom";
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-
-// verification type props : les props sont definie et ne pauvent etre null ou undifined
+import { useParams, useNavigate } from "react-router-dom";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import PropTypes from "prop-types";
 import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
 import { useState } from "react";
 import { Collapse } from "@mui/material";
 
-
 SidebarListItems.propTypes = {
-    navItem: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        item: PropTypes.string.isRequired,
-        icon: PropTypes.elementType.isRequired,
-        link: PropTypes.string.isRequired,
-        cat: PropTypes.bool.isRequired,
-      })
-    ),
-    catPatern: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number.isRequired,
-          text: PropTypes.string.isRequired,
-          icon: PropTypes.oneOfType([
-            PropTypes.string, // ou PropTypes.instanceOf(React.Element) selon le type réel de `icon`
-            PropTypes.elementType // ou PropTypes.instanceOf(React.Element) selon le type réel de `icon`
-          ]).isRequired,
-        })
-      ),
+  navItem: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      item: PropTypes.string.isRequired,
+      icon: PropTypes.elementType.isRequired,
+      link: PropTypes.string.isRequired,
+      cat: PropTypes.bool.isRequired,
+    })
+  ),
+  catPatern: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+      icon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.elementType,
+      ]).isRequired,
+    })
+  ),
+  open: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
+
+function SidebarListItems({ navItem, catPatern, open, handleClick }) {
+  const [submenuOpen, setSubmenuOpen] = useState(false);
+
+  const handleSubmenuClick = () => {
+    setSubmenuOpen(!submenuOpen);
   };
-  
-function SidebarListItems({navItem,catPatern}) {
-//  const navigate =useNavigate();
-    const [open, setOpen] = useState (true);
-    const subMenu = navItem.find(item => item.id === 1)?.cat;
-    const handleClick = () => {
-        console.log("subMenu",subMenu,open);
-        setOpen(!open);
-      };
+
   return (
     <Collapse in={open} timeout="auto" unmountOnExit>
-
-    <List component="nav">
-    {navItem.map(item => (
-      <List key={item.id} 
-      disablePadding sx={{ display: 'block' }} 
-     // Utilisation de la fonction de rappel lors du clic  onClick={()=>navigate(item.link)} 
-      >
-        <ListItemButton
-        onClick={handleClick}
-       
-          sx={{
-            minHeight: 48,
-            justifyContent: open ? 'initial' : 'center',
-            px: 2.5,
-          }}
-        >
-          <ListItemIcon
-            sx={{
-            fontSize :"1.3rem",
-              minWidth: 0,
-              mr: open ? 4 : 'auto',
-              justifyContent: 'center',
-            }}
+      <List component="nav">
+        {navItem.map((item) => (
+          <List
+            key={item.id}
+            disablePadding
+            sx={{ display: "block" }}
           >
-            {item.icon}
-          </ListItemIcon>
-          <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }} >
-
-          </ListItemText>
-          
-
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        
-  
+            <ListItemButton
+              onClick={item.cat ? handleSubmenuClick : handleClick}
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  fontSize: "1.3rem",
+                  minWidth: 0,
+                  mr: open ? 4 : "auto",
+                  justifyContent: "center",
+                }}
+              >
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText
+                primary={item.item}
+                sx={{ opacity: open ? 1 : 0 }}
+              />
+              {item.cat ? (submenuOpen ? <ExpandLess /> : <ExpandMore />) : null}
+            </ListItemButton>
+          </List>
+        ))}
       </List>
-    ))}
-  </List>
-  </Collapse>
-  )
+    </Collapse>
+  );
 }
 
-export default SidebarListItems 
-
-        
+export default SidebarListItems;
