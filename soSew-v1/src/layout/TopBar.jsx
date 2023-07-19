@@ -8,6 +8,7 @@ import {
   Badge,
 
 } from "@mui/material";
+
 import   MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { BsSearch } from "react-icons/bs";
@@ -19,6 +20,9 @@ import {
 } from "@mui/icons-material";
 
 // personalisation des elements de la searchbar
+
+const drawerWidth = 240;
+
 const Search = styled("div")(({ theme }) => ({
   display: "flex",
   position: "relative",
@@ -143,6 +147,6 @@ function TopBar({ handleDrawerOpen, open }) {
 TopBar.propTypes = {
   handleDrawerOpen: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  AppBar: PropTypes.object.isRequired,
+
 };
 export default TopBar;

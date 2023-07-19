@@ -19,7 +19,7 @@ const layout = () => {
 
   return (
     <>
-    <TopBar handleDrawerOpen={handleDrawerOpen}  open={open} AppBar={AppBar} />
+    <TopBar handleDrawerOpen={handleDrawerOpen}  open={open}  />
     <Sidebar handleDrawerClose={handleDrawerClose}/>
     <GridContent  />  
     </>
