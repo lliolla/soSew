@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route , } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
 
+import Layout from '../src/layout/layout'
 import Home from '../src/views/Home'
 import Dashboard from '../src/views/Dashboard'
 import Capsule from '../src/views/Capsule'
@@ -20,6 +21,7 @@ function App() {
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/layout" element={<Layout />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/patern" element={<Patern/>   } />
           <Route path="/Capsule" element={<Capsule/>   } />

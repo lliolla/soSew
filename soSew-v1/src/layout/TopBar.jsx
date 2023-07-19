@@ -6,8 +6,9 @@ import {
   Typography,
   Toolbar,
   Badge,
-} from "@mui/material";
 
+} from "@mui/material";
+import   MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { BsSearch } from "react-icons/bs";
 import { styled, alpha } from "@mui/material/styles";
@@ -61,7 +62,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function TopBar({ handleDrawerOpen, open, AppBar }) {
+const AppBar = styled(MuiAppBar, {
+    shouldForwardProp: (prop) => prop !== "open",
+  })(({ theme, open }) => ({
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    ...(open && {
+      marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
+      transition: theme.transitions.create(["width", "margin"], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    }),
+  }));
+
+function TopBar({ handleDrawerOpen, open }) {
   return (
     <AppBar position="fixed" open={open}>
       <Box>

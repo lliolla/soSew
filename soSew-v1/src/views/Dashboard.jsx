@@ -1,14 +1,11 @@
-
-import Sidebar from '../components/global/Sidebar'
+import Sidebar from "../layout/sidebar/Sidebar";
 
 function Dashboard() {
   return (
     <div>
-            <Sidebar  />
-            
+      <Sidebar />
     </div>
-
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

@@ -7,9 +7,9 @@ export default function Home() {
     <div>
 <h3>Home loggin page</h3>
 <NavLink 
-           to="/dashboard"
+           to="/layout"
            className={(nav) => (nav.isActive ? "nav-active hover" : "hover")}
-           > tableau
+           > aller au dasbord
            </NavLink>
     </div>
    

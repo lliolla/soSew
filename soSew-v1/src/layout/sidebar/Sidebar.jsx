@@ -1,20 +1,16 @@
-import { useState } from "react";
 
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Avatar, Typography } from "@mui/material";
 
-import TopBar from "../global/TopBar";
 import SidebarListItems from "./SidebarListItems";
 
-import { navItem, catPatern} from "../../data/navData";
-
+import { navItem, catPatern } from "../../data/navData";
 
 const drawerWidth = 240;
 
@@ -48,24 +44,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-    
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
+
 
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -85,30 +64,21 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function Sidebar() {
+export default function Sidebar(handleDrawerClose) {
   const theme = useTheme();
-  const [open, setOpen] = useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   return (
-    <Box >
-      <TopBar handleDrawerOpen={handleDrawerOpen} open={open} AppBar={AppBar} />
+    <Box>
+      
 
-      <Drawer variant="permanent" open={open}   >
-        <DrawerHeader sx={{ display: "flex" ,justifyContent: 'space-between'}}>
-          <Box component="div"sx={{ display: "flex" }} >
-          
+      <Drawer variant="permanent" open={open}>
+        <DrawerHeader sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box component="div" sx={{ display: "flex" }}>
             <Avatar
               alt="Remy Sharp"
               src="/public/needle.png"
-              sx={{ width: 24, height: 24 ,margin: '1rem'}}
+              sx={{ width: 24, height: 24, margin: "1rem" }}
             />
             <Typography sx={{ margin: "1rem" }}>SOSew</Typography>
           </Box>
@@ -121,12 +91,11 @@ export default function Sidebar() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <SidebarListItems navItem={navItem} catPatern={catPatern}/>
+        <SidebarListItems navItem={navItem} catPatern={catPatern} />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-      </Box>
+          <DrawerHeader />
+        </Box>
       </Drawer>
-     
     </Box>
   );
 }
