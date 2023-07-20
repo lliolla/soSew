@@ -1,6 +1,6 @@
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import PropTypes from "prop-types";
-import { ExpandLess} from "@mui/icons-material";
+import {  ChevronRight } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { Collapse } from "@mui/material";
 
@@ -26,6 +26,8 @@ function SidebarListItems({ navItem, open }) {
         {navItem.map((item) => (
           <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+            component={item.cat ?  'div' :'a'}
+            href={item.cat ? undefined:item.link}
               onClick={() => handleSubmenuClick(item)}
               sx={{
                 minHeight: 48,
@@ -44,7 +46,7 @@ function SidebarListItems({ navItem, open }) {
                 {item.icon}
               </ListItemIcon>
               <ListItemText primary={item.title} sx={{ opacity: open ? 1 : 0 }} />
-              {item.cat ? <ExpandLess /> : null}
+              {item.cat ? <ChevronRight /> : null}
             </ListItemButton>
             {item.cat && (
               <Collapse in={menu} timeout="auto" unmountOnExit>
