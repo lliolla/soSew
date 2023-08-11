@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
+  ListItemText,
   Typography,
 } from "@mui/material";
 
@@ -64,7 +65,9 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
                     SoSew
                   </Typography>
                 </Box>
+            
                 {!isNoMobile && (
+                    
                   <IconButton
                     onClick={() => setisSidebarOpen(!setisSidebarOpen)}
                   >
@@ -74,7 +77,7 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
               </Box>
             </Box>
             <List>
-                list
+                
               {navItem.map((item) => {
                 if (!item.icon) {
                   return (
@@ -83,7 +86,7 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
                     </Typography>
                   );
                 }
-                const lcText = item.text.toLowerCase();
+                const lcText = item.title.toLowerCase();
                 return (
                   <ListItem key={item.id} disablePadding>
                     <ListItemButton
@@ -113,6 +116,9 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
                       >
                         {item.icon}
                       </ListItemIcon>
+                      <ListItemText>
+                      {item.title}
+                      </ListItemText>
                     </ListItemButton>
                   </ListItem>
                 );
