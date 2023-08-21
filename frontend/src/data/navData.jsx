@@ -3,9 +3,19 @@ import { IoMdFolderOpen } from 'react-icons/io';
 import { BsClipboard } from 'react-icons/bs';
 import { FaRegEnvelope } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
+import { MdOutlineSpaceDashboard } from 'react-icons/md';
+
+
 
 
 export const navItem = [
+    {
+        id: 6,
+        title: 'Tableau de bord',
+        icon: <MdOutlineSpaceDashboard />,
+        link: 'dashboard',
+        cat: false,
+      },
   {
     id: 1,
     title: 'Patrons',
@@ -58,6 +68,7 @@ export const navItem = [
     link: 'settings',
     cat: false,
   },
+ 
 ];
 
 

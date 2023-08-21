@@ -11,7 +11,7 @@ import { FlexBeteween } from "../../style";
 import { setMode } from "../../state/index";
 import { useTheme } from "@mui/material/styles";
 
-function TopBar() {
+function TopBar({isSidebarOpen, setisSidebarOpen}) {
   const dispatch = useDispatch();
   const theme = useTheme();
   return (
@@ -24,7 +24,7 @@ function TopBar() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <FlexBeteween>
-          <IconButton onClick={() => console.log("open/Close sidebar")}>
+          <IconButton onClick={() => setisSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
           <FlexBeteween

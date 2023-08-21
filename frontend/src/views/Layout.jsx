@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-import TopBar from "../components/nav/TopBar";
-
 import { Box, useMediaQuery } from "@mui/material";
+
 import { Outlet } from "react-router-dom";
+
+import TopBar from "../components/nav/TopBar";
 import Sidebar from "../components/nav/Sidebar";
+
 
 function Layout() {
     const [isSidebarOpen, setisSidebarOpen] = useState(true);

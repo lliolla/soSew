@@ -19,6 +19,8 @@ import {
 
 import { navItem } from "../../data/navData";
 import { BiChevronLeft } from "react-icons/bi";
+import { ChevronRightOutlined } from "@mui/icons-material";
+import { FlexBeteween } from "../../style";
 
 function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
   // permet de recuperer la page active pour l'afficher
@@ -35,9 +37,9 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
 
   return (
     <Box component="nav">
-      sidebarv
       {isSidebarOpen && (
         <Drawer
+     
           open={isSidebarOpen}
           onClose={() => setisSidebarOpen(false)}
           variant="persistent"
@@ -55,11 +57,8 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
         >
           <Box width="100%">
             <Box m="1.5rem 2rem 2rem 3rem">
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                color={theme.palette.secondary.main}
-              >
+                <FlexBeteween>
+             
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
                     SoSew
@@ -74,7 +73,8 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
                     <BiChevronLeft />
                   </IconButton>
                 )}
-              </Box>
+        
+              </FlexBeteween>
             </Box>
             <List>
                 
@@ -86,7 +86,7 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
                     </Typography>
                   );
                 }
-                const lcText = item.title.toLowerCase();
+                const lcText = item.link
                 return (
                   <ListItem key={item.id} disablePadding>
                     <ListItemButton
@@ -116,9 +116,15 @@ function Sidebar({ drawerWidht, isSidebarOpen, setisSidebarOpen, isNoMobile }) {
                       >
                         {item.icon}
                       </ListItemIcon>
-                      <ListItemText>
-                      {item.title}
-                      </ListItemText>
+                      <ListItemText primary={item.title}/>
+                        {
+                             active === lcText &&(
+                                <ChevronRightOutlined sx={{ml:'auto'}}/>
+                             )
+                        }
+                     
+                     
+
                     </ListItemButton>
                   </ListItem>
                 );

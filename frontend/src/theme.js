@@ -1,9 +1,9 @@
-// MUI theme
 
-// import { createTheme } from "@mui/material/styles";
-
-// Import font files correctly
-// import QuestrialRegular from "./assets/fonts/Questrial-Regular.woff2";
+// couleur verte #60A561
+// couleur jaune#BFAB22
+// couleur bordeau #BF4F3F
+// couleur JADE#17B890
+// couleur blanc #F9F5E3
 
 export const tokensDark = {
   grey: {
@@ -22,26 +22,26 @@ export const tokensDark = {
     1000: "#000000",
   },
   primary: {
-    100: "#d8ede8",
-    200: "#b2dad1",
-    300: "#8bc8b9",
-    400: "#65b5a2",
-    500: "#3ea38b",
-    600: "#32826f",
-    700: "#256253",
-    800: "#194138",
-    900: "#0c211c",
+    100: "#d0dcdd",
+    200: "#a1b9bb",
+    300: "#729598",
+    400: "#437276",
+    500: "#144f54",
+    600: "#103f43",
+    700: "#0c2f32",
+    800: "#082022",
+    900: "#041011"
   },
   secondary: {
-    100: "#f4e1df",
-    200: "#e9c3be",
-    300: "#dda59e",
-    400: "#d2877d",
-    500: "#c7695d",
-    600: "#9f544a",
-    700: "#773f38",
-    800: "#502a25",
-    900: "#281513",
+    100: "#f5ddd6",
+    200: "#ebbaae",
+    300: "#e19885",
+    400: "#d7755d",
+    500: "#cd5334",
+    600: "#a4422a",
+    700: "#7b321f",
+    800: "#522115",
+    900: "#29110a"
   },
   background: {
     default: "#e1f2ee",
