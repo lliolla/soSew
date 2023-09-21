@@ -2,7 +2,7 @@
 
 
 
-const compte = () => {
+const Capsule = () => {
 
 
 
@@ -11,4 +11,4 @@ const compte = () => {
   )
 }
 
-export default compte
+export default Capsule

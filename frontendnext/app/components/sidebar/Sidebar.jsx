@@ -1,9 +1,13 @@
 
-//  import NavItems from "./NavItems";
+import NavItems from "./NavItems";
 
 const Sidebar = () => {
   return (
-  <div>  sidebar </div>
+  <div>  
+   
+    <NavItems/>
+    
+     </div>
      
  
   );

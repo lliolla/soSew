@@ -1,9 +1,11 @@
 import React from 'react'
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const MainContent = () => {
   return (
     <div className='bg-zinc-50 w-screen min-h-screen' >
-        MainContent
+        <Breadcrumbs />
+       <main>MainContent</main> 
     </div>
   )
 }

@@ -1,20 +1,30 @@
-import React from "react";
-import Topbar from "../components/Topbar";
-import Navbar from "../components/sidebar/Sidebar";
-import MainContent from "../components/MainContent";
+'use client'
 
-MainContent
+import React,{useContext} from "react";
+import Topbar from "../components/topBar/Topbar";
+import Sidebar from "../components/sidebar/Sidebar";
+import MainContent from "../components/MainContent";
+import { MenuContext } from "context/MenuContext";
+
+MainContent;
 const DashboardLayout = () => {
+    const { open } = useContext(MenuContext);
+
   return (
     <div>
-      <Topbar />
-      <div>
-        <aside>
-        <Navbar />
-        </aside>
-   
-      </div>
-        <MainContent/>
+      
+        <nav>
+          <Topbar />
+        </nav>
+
+        <div className="bg-black flex flex-row ">
+          <aside className={`${open?"w-60 bg-red-400 overflow-hidden ":"w-0"}`}>
+    
+            <Sidebar />
+          </aside>
+          <MainContent />
+        </div>
+     
     </div>
   );
 };
