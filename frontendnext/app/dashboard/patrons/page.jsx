@@ -1,8 +1,13 @@
 import React from 'react'
+ import Card, {  } from "../../components/Card";
 
 const patrons = () => {
   return (
-    <div>gestion des patrons</div>
+    <div  >
+<h2>gestion des patrons</h2>
+        <Card class />
+    </div>
+
   )
 }
 

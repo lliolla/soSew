@@ -1,59 +1,69 @@
 'use client'
 
 import React,{useContext}   from "react";
+import { usePathname } from 'next/navigation'
 import Link from "next/link";
-import { AiOutlineHome ,AiOutlineFolderOpen,AiOutlineFileText} from "react-icons/ai";
+import { AiOutlineHome ,AiOutlineShop,AiOutlineFolderOpen,AiOutlineFileText,AiFillTool,AiOutlineRead} from "react-icons/ai";
+import { GrUserAdmin} from "react-icons/gr";
+
 import { MenuContext } from "context/MenuContext";
 
 
 const navItems = () => {
 const { open } = useContext(MenuContext);
-
+const pathname = usePathname()
   return (
     <div>
         {
             open &&(
-                <ul className="menu w-3/4 bg-base-200 ">
-                <li>
+                <ul className="menu   bg-base-200 ">
+                <li className="p-1">
+                  <Link className="link " href="/dashboard/admin">
+                  <GrUserAdmin className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
+                    Administration
+                  </Link>
+                </li>
+                <li className="p-1">
                   <Link className="link " href="/dashboard">
                     
-                    <AiOutlineHome className="h-5 w-5" />
+                    <AiOutlineHome className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`} />
                     
                     Tableau de bord
                   </Link>
                 </li>
-                <li>
+                <li className="p-1">
                   <Link className="link " href="/dashboard/projets">
-                    <AiOutlineFolderOpen className="h-5 w-5" />
+                    <AiOutlineFolderOpen className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
                     Projets
                   </Link>
                 </li>
-                <li>
+                <li className="p-1">
                   <Link className="link " href="/dashboard/patrons">
-                   <AiOutlineFileText className="h-5 w-5"/>
+                   <AiOutlineFileText className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
                     Patrons
                   </Link>
                 </li>
                
-                <li>
+                <li className="p-1">
                   <Link className="link " href="/dashboard/capsule">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                      />
-                    </svg>
+                  <AiOutlineShop className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`} />
                     Capsule
                   </Link>
                 </li>
+                <li className="p-1">
+                  <Link className="link " href="/dashboard/techniques">
+                  <AiFillTool className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
+                    Techniques
+                  </Link>
+                </li>
+               
+                <li className="p-1">
+                  <Link className="link " href="/dashboard/ressources">
+                  <AiOutlineRead className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
+                    Ressources
+                  </Link>
+                </li>
+                
               </ul>  
             )
         }

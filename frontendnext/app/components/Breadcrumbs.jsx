@@ -2,7 +2,7 @@ import React from 'react'
 
 const Breadcrumbs = () => {
   return (
-    <div className="text-sm breadcrumbs bg-white">
+    <div className="breadcrumbs text-md  bg-white">
     <ul>
       <li><a>Home</a></li> 
       <li><a>Documents</a></li> 

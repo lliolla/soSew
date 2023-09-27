@@ -1,8 +1,5 @@
 
-
-
-
-const Capsule = () => {
+const capsule = () => {
 
 
 
@@ -11,4 +8,4 @@ const Capsule = () => {
   )
 }
 
-export default Capsule
+export default capsule

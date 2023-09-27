@@ -1,12 +1,14 @@
 
 import NavItems from "./NavItems";
-
+import { listItem } from "../../../data/navData";
 const Sidebar = () => {
   return (
   <div>  
-   
-    <NavItems/>
-    
+    <div className="divider"></div>
+ {   listItem.map((item)=>{
+    return  <NavItems key={item.id}/>
+ })  }
+    <div className="divider"></div>
      </div>
      
  

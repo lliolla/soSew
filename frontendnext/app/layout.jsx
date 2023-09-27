@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
         <body>
         <MenuContextProvider>
             {children}
-            </MenuContextProvider>
+        </MenuContextProvider>
         </body>
       </html>
     )
