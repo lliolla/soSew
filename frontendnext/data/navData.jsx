@@ -7,15 +7,15 @@ export const listItem = [
     {
         id: 1,
         title: 'Tableau de bord',
-        icon: <AiOutlineHome />,
-        link: 'dashboard',
+        icon: <AiOutlineHome size={21} className='mr-2' />,
+        link: '/dashboard',
         cat: false,
       },
     {
         id: 2,
         title: 'Patrons',
-        icon: <AiOutlineFolderOpen />,
-        link: 'pattern',
+        icon: <AiOutlineFolderOpen size={21} className='mr-2' />,
+        link: '/dashboard/patrons',
         cat: true,
         catPatern:[
             {
@@ -38,30 +38,30 @@ export const listItem = [
       {
         id: 3,
         title: 'Projets',
-        icon: <AiOutlineFileText />,
-        link: 'project',
+        icon: <AiOutlineFileText size={22} className='mr-2' />,
+        link: '/dashboard/projets',
         cat: false,
       },
      
     {
         id: 4,
         title: 'Capsule',
-        icon: <AiOutlineShop/>,
-        link: 'dashboard/capsule',
+        icon: <AiOutlineShop size={22} className='mr-2'/>,
+        link: '/dashboard/capsule',
         cat: false,
       },
     {
         id: 5,
         title: 'Techniques',
-        icon: <AiFillTool/>,
-        link: 'dashboard/techniques',
+        icon: <AiFillTool size={22} className='mr-2'/>,
+        link: '/dashboard/techniques',
         cat: false,
       },
     {
         id: 6,
         title: 'Ressources',
-        icon: < AiOutlineRead/>,
-        link: 'dashboard/ressources',
+        icon: < AiOutlineRead size={22} className='mr-2'/>,
+        link: '/dashboard/ressources',
         cat: false,
       },
    
@@ -69,15 +69,15 @@ export const listItem = [
       {
         id: 7,
         title: 'Messages',
-        icon: <FaRegEnvelope />,
-        link: 'message',
+        icon: <FaRegEnvelope size={21} className='mr-2' />,
+        link: '/dashboard/message',
         cat: false,
       },
       {
         id: 8,
         title: 'Setting',
-        icon: <FiSettings />,
-        link: 'settings',
+        icon: <FiSettings size={21} className='mr-2'/>,
+        link: '/dashboard/settings',
         cat: false,
       },
  

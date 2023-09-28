@@ -3,72 +3,64 @@
 import React,{useContext}   from "react";
 import { usePathname } from 'next/navigation'
 import Link from "next/link";
-import { AiOutlineHome ,AiOutlineShop,AiOutlineFolderOpen,AiOutlineFileText,AiFillTool,AiOutlineRead} from "react-icons/ai";
-import { GrUserAdmin} from "react-icons/gr";
+import image from 'next/image'
 
 import { MenuContext } from "context/MenuContext";
+import { listItem } from "../../../data/navData";
 
 
 const navItems = () => {
-const { open } = useContext(MenuContext);
+ const { open } = useContext(MenuContext);
 const pathname = usePathname()
   return (
     <div>
-        {
+  <div>
+      {listItem.map((item) => (
+        <div key={item.id}>
+          {open ? (
+            <div className="flex flex-col item-center text-sm" >
+            
+                  <Link className="link flex flex-row hover:bg-teal-600 hover:text-stone-200 hover:font-medium p-3 rounded-lg" href={item.link}>
+                  <div className={pathname === '/' ? 'active' : ''}> {item.icon} </div>   
+                  {item.title}
+                  </Link>
+               
+    
+
+            </div>
+          ) : (
+            <div className="flex flex-col item-center text-sm" >
+            
+                  <Link className="link flex flex-row justify-center hover:bg-teal-600 hover:text-stone-200 hover:font-medium p-3 rounded-lg" href={item.link}>
+                  <div className={pathname === '/' ? 'active' : ''}> {item.icon} </div>   
+         
+                  </Link>
+               
+    
+
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+        {/* {
             open &&(
-                <ul className="menu   bg-base-200 ">
+
+            <ul className="menu   bg-base-200 ">
                 <li className="p-1">
                   <Link className="link " href="/dashboard/admin">
                   <GrUserAdmin className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
                     Administration
                   </Link>
                 </li>
-                <li className="p-1">
-                  <Link className="link " href="/dashboard">
-                    
-                    <AiOutlineHome className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`} />
-                    
-                    Tableau de bord
-                  </Link>
-                </li>
-                <li className="p-1">
-                  <Link className="link " href="/dashboard/projets">
-                    <AiOutlineFolderOpen className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
-                    Projets
-                  </Link>
-                </li>
-                <li className="p-1">
-                  <Link className="link " href="/dashboard/patrons">
-                   <AiOutlineFileText className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
-                    Patrons
-                  </Link>
-                </li>
-               
-                <li className="p-1">
-                  <Link className="link " href="/dashboard/capsule">
-                  <AiOutlineShop className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`} />
-                    Capsule
-                  </Link>
-                </li>
-                <li className="p-1">
-                  <Link className="link " href="/dashboard/techniques">
-                  <AiFillTool className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
-                    Techniques
-                  </Link>
-                </li>
-               
-                <li className="p-1">
-                  <Link className="link " href="/dashboard/ressources">
-                  <AiOutlineRead className={`h-5 w-5 mr-2 ${pathname === '/' ? 'active' : ''}`}/>
-                    Ressources
-                  </Link>
-                </li>
-                
-              </ul>  
-            )
-        }
+              </ul>
 
-     
+
+            )
+        } */}
+
+
     </div>
   );
 };

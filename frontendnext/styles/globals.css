@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.sidebar-collapse{
-transition-property: inset-inline-start;
-  transition-duration: var(--sidebar-transition-duration);
-  transition-timing-function: var(--sidebar-transition-timing-function);
+.link-hover{
+ opacity: 1;
+ color: rgb(231 229 228 / var(--tw-text-opacity));
+ background-color:rgb(13 148 136 / var(--tw-bg-opacity));
 }
 

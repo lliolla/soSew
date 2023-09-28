@@ -1,14 +1,17 @@
 
 import NavItems from "./NavItems";
-import { listItem } from "../../../data/navData";
+import image from 'next/image'
 const Sidebar = () => {
   return (
   <div>  
-    <div className="divider"></div>
- {   listItem.map((item)=>{
-    return  <NavItems key={item.id}/>
- })  }
-    <div className="divider"></div>
+    <div className="avatar"> <img src="../../../public/john.png" alt="John Doe" /> </div>
+    {/* si open = false alors on laisse que lavatar */}
+    <h3>John Doe</h3>
+     <div className="divider"></div>
+
+  <NavItems />
+
+   
      </div>
      
  
