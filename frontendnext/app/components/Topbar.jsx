@@ -2,7 +2,7 @@
 
 import React, { useContext } from "react";
 import { FaBars } from "react-icons/fa";
-import { AiOutlineMail, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineMail } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { HiUser  } from "react-icons/hi";
 
@@ -23,15 +23,7 @@ const Topbar = () => {
         <div className="text-zinc-50 font-semibold px-4 text-2xl">SoSew</div>
       </div>
 
-      <div className="flex  items-center ">
-        <AiOutlineSearch className="text-slate-50 h-5 w-5 m-2" />
-        <input
-          type="text"
-          placeholder="Search"
-          className="input input-bordered h-8"
-        />
-        <div></div>
-      </div>
+   
 
       <div className="flex items-center ">
         <div className=" text-zinc-50 font-semibold  ">
